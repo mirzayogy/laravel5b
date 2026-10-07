@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('praktikums', function (Blueprint $table) {
+        Schema::create('praktikum', function (Blueprint $table) {
             $table->id();
+            $table->string('periode');
+            $table->string('singkatan');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('praktikums');
+        Schema::dropIfExists('praktikum');
     }
 };
