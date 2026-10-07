@@ -2,24 +2,34 @@
 
 namespace Database\Seeders;
 
-use App\Models\Praktikum;
+use App\Models\Periode;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PraktikumSeeder extends Seeder
+class PeriodeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // Praktikum::create([
+        // Periode::create([
         //     'periode' => 'GANJIL 2025/2026',
         //     'singkatan' => '251',
         // ]);
-        
+        // Periode::create([
+        //     'periode' => 'GENAP 2025/2026',
+        //     'singkatan' => '252',
+        // ]);// Periode::create([
+        //     'periode' => 'GANJIL 2026/2027',
+        //     'singkatan' => '261',
+        // ]);
+        // Periode::create([
+        //     'periode' => 'GENAP 2026/2027',
+        //     'singkatan' => '262',
+        // ]);
 
-        // Praktikum::insert([
+        // Periode::insert([
         //     ['periode' => 'GANJIL 2025/2026', 'singkatan' => '251'],
         //     ['periode' => 'GENAP 2025/2026', 'singkatan' => '252'],
         //     ['periode' => 'GANJIL 2026/2027', 'singkatan' => '261'],
@@ -40,6 +50,6 @@ class PraktikumSeeder extends Seeder
             'updated_at' => $now,
         ])->toArray();
 
-        Praktikum::insert($data);
+        Periode::insert($data);
     }
 }

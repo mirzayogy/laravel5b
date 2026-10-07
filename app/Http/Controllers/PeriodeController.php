@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Praktikum;
+use App\Models\Periode;
 use Illuminate\Http\Request;
 
-class PraktikumController extends Controller
+class PeriodeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PraktikumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Praktikum $praktikum)
+    public function show(Periode $periode)
     {
         //
     }
@@ -42,7 +42,7 @@ class PraktikumController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Praktikum $praktikum)
+    public function edit(Periode $periode)
     {
         //
     }
@@ -50,7 +50,7 @@ class PraktikumController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Praktikum $praktikum)
+    public function update(Request $request, Periode $periode)
     {
         //
     }
@@ -58,7 +58,7 @@ class PraktikumController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Praktikum $praktikum)
+    public function destroy(Periode $periode)
     {
         //
     }
