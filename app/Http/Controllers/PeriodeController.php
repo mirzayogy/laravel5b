@@ -12,7 +12,8 @@ class PeriodeController extends Controller
      */
     public function index()
     {
-        //
+        $periodes = Periode::all();
+        return view('periode.index', compact('periodes'));
     }
 
     /**
@@ -20,7 +21,7 @@ class PeriodeController extends Controller
      */
     public function create()
     {
-        //
+        return view('periode.create');
     }
 
     /**
