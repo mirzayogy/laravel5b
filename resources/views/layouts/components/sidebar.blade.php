@@ -5,8 +5,7 @@
         <!--begin::Brand Link-->
         <a href="./index.html" class="brand-link">
             <!--begin::Brand Image-->
-            <img src="./dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo"
-                class="brand-image opacity-75 shadow" />
+            <img src="./dist/assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
             <span class="brand-text fw-light">AdminLTE 4</span>
@@ -19,8 +18,7 @@
     <div class="sidebar-wrapper">
         <nav class="mt-2" aria-label="Main navigation">
             <!--begin::Sidebar Menu-->
-            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" data-accordion="false"
-                id="navigation">
+            <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" data-accordion="false" id="navigation">
                 <li class="nav-item">
                     <a href="/" class="nav-link active">
                         <i class="nav-icon bi bi-speedometer"></i>
@@ -73,6 +71,13 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-header">LAPORAN</li>
+            <li class="nav-item">
+                <a href="{{ route('laporan.periode') }}" target="_blank" class="nav-link">
+                    <i class="nav-icon bi bi-file-earmark-pdf"></i>
+                    <p>Laporan Periode</p>
+                </a>
+            </li>
             </ul>
             <!--end::Sidebar Menu-->
 
