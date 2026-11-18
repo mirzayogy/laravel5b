@@ -41,7 +41,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('periode.*') ? 'menu-open' : '' }}">
+                <li class="nav-item {{ request()->routeIs('periode.*', 'prodi.*') ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->routeIs('periode.*') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-box-seam-fill"></i>
                         <p>
@@ -57,6 +57,13 @@
                                 <p>Periode</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('prodi.index') }}"
+                                class="nav-link {{ request()->routeIs('prodi.*') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Program Studi</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-header">LAPORAN</li>
@@ -64,6 +71,12 @@
                     <a href="{{ route('laporan.periode') }}" target="_blank" class="nav-link">
                         <i class="nav-icon bi bi-file-earmark-pdf"></i>
                         <p>Laporan Periode</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('laporan.prodi') }}" target="_blank" class="nav-link">
+                        <i class="nav-icon bi bi-file-earmark-pdf"></i>
+                        <p>Laporan Prodi</p>
                     </a>
                 </li>
             </ul>
