@@ -1,5 +1,20 @@
 @extends('layouts.app')
 
+@section('breadcrumb')
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 class="mb-0 fs-3">Periode</h1>
+        </div>
+        <div class="col-sm-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item active" aria-current="page">Periode</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -36,7 +51,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($periodes as $periode)
+                            @foreach ($semua_periode as $periode)
                                 <tr class="align-middle">
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $periode->periode }}</td>

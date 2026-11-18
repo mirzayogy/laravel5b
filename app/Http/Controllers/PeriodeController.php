@@ -13,8 +13,8 @@ class PeriodeController extends Controller
      */
     public function index()
     {
-        $periodes = Periode::all();
-        return view('periode.index', compact('periodes'));
+        $semua_periode = Periode::all();
+        return view('periode.index', compact('semua_periode'));
     }
 
     /**
