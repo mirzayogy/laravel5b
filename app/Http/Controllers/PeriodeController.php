@@ -30,7 +30,26 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'periode' => ['required', 'string', 'max:16', 'min:15', 'unique:periode,periode'],
+            'singkatan' => ['required', 'string', 'max:3', 'min:3', 'unique:periode,singkatan'],
+        ], [
+            'periode.required' => 'Nama periode wajib diisi.',
+            'singkatan.required' => 'Singkatan wajib diisi.',
+            'singkatan.unique' => 'Singkatan sudah dipakai periode lain.',
+            'periode.unique' => 'Periode sudah ada.',
+            'periode.max' => 'Periode maksimal 16 karakter.',
+            'periode.min' => 'Periode minimal 15 karakter.',
+            'singkatan.max' => 'Singkatan maksimal 3 karakter.',
+            'singkatan.min' => 'Singkatan minimal 3 karakter.',
+        ]);
+
+        $data['status'] = $request->boolean('status');
+
+        Periode::create($data); // ini perintah tambah data ke database, data yang ditambahkan sesuai dengan isi variabel $data
+
+        return redirect()->route('periode.index')
+            ->with('success', 'Periode berhasil ditambahkan.');
     }
 
     /**
@@ -46,7 +65,7 @@ class PeriodeController extends Controller
      */
     public function edit(Periode $periode)
     {
-        //
+        return view('periode.edit', compact('periode'));
     }
 
     /**
@@ -54,7 +73,26 @@ class PeriodeController extends Controller
      */
     public function update(Request $request, Periode $periode)
     {
-        //
+        $data = $request->validate([
+            'periode' => ['required', 'string', 'max:16', 'min:15', 'unique:periode,periode,' . $periode->id],
+            'singkatan' => ['required', 'string', 'max:3', 'min:3', 'unique:periode,singkatan,' . $periode->id],
+        ], [
+            'periode.required' => 'Nama periode wajib diisi.',
+            'singkatan.required' => 'Singkatan wajib diisi.',
+            'singkatan.unique' => 'Singkatan sudah dipakai periode lain.',
+            'periode.unique' => 'Periode sudah ada.',
+            'periode.max' => 'Periode maksimal 16 karakter.',
+            'periode.min' => 'Periode minimal 15 karakter.',
+            'singkatan.max' => 'Singkatan maksimal 3 karakter.',
+            'singkatan.min' => 'Singkatan minimal 3 karakter.',
+        ]);
+
+        $data['status'] = $request->boolean('status');
+
+        $periode->update($data);
+
+        return redirect()->route('periode.index')
+            ->with('success', 'Periode berhasil diubah.');
     }
 
     /**
@@ -62,7 +100,10 @@ class PeriodeController extends Controller
      */
     public function destroy(Periode $periode)
     {
-        //
+        $periode->delete();
+
+        return redirect()->route('periode.index')
+            ->with('success', 'Periode berhasil dihapus.');
     }
 
     public function cetak()

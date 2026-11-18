@@ -1,5 +1,21 @@
 @extends('layouts.app')
 
+@section('breadcrumb')
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 class="mb-0 fs-3">Periode</h1>
+        </div>
+        <div class="col-sm-6">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb float-sm-end">
+                    <li class="breadcrumb-item" aria-current="page"><a href="{{ route('periode.index') }}">Periode</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tambah</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -11,48 +27,55 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="d-flex flex-wrap justify-content-md-end gap-2">
-                                <a href="{{ route('periode.index') }}" type="button" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-arrow-left-circle me-1" aria-hidden="true"> </i>
+                                <a href="{{ route('periode.index') }}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-arrow-left-circle me-1" aria-hidden="true"></i>
                                     Kembali
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
-                    <form>
+                    <form action="{{ route('periode.store') }}" method="POST">
+                        @csrf
+
                         <div class="mb-3">
-                            <label for="periode" class="form-label"> Periode </label>
-                            <input type="text" class="form-control" id="periode" name="periode" placeholder="contoh: GANJIL 2025/2026"
-                                required />
+                            <label for="periode" class="form-label">Periode</label>
+                            <input type="text" class="form-control @error('periode') is-invalid @enderror"
+                                id="periode" name="periode" value="{{ old('periode') }}"
+                                placeholder="contoh: GANJIL 2027/2028" />
+                            @error('periode')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
+
                         <div class="mb-3">
-                            <label for="singkatan" class="form-label"> Singkatan </label>
-                            <input type="text" class="form-control" id="singkatan" name="singkatan" placeholder="251"
-                                required />
+                            <label for="singkatan" class="form-label">Singkatan</label>
+                            <input type="text" class="form-control @error('singkatan') is-invalid @enderror"
+                                id="singkatan" name="singkatan" value="{{ old('singkatan') }}"
+                                placeholder="contoh: 271" />
+                            @error('singkatan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="status" name="status" />
-                            <label class="form-check-label" for="new-user-welcome">
-                                Status Aktif
-                            </label>
+
+                        <div class="form-check form-switch mb-3">
+                            <input class="form-check-input" type="checkbox" role="switch" id="status"
+                                name="status" value="1" @checked(old('status')) />
+                            <label class="form-check-label" for="status">Aktif</label>
                         </div>
-                        <div class="d-flex flex-wrap justify-content-md-end">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                <i class="bi bi-x-circle me-1" aria-hidden="true"> </i>
-                                Cancel
-                            </button>
+
+                        <div class="d-flex flex-wrap justify-content-md-end gap-2">
+                            <a href="{{ route('periode.index') }}" class="btn btn-secondary">
+                                <i class="bi bi-x-circle me-1" aria-hidden="true"></i> Batal
+                            </a>
                             <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-save me-1" aria-hidden="true"> </i>
-                                Simpan
+                                <i class="bi bi-save me-1" aria-hidden="true"></i> Simpan
                             </button>
                         </div>
                     </form>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
         </div>
     </div>
 @endsection
