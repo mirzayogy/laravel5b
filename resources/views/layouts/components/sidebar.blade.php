@@ -41,8 +41,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('periode.*', 'prodi.*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ request()->routeIs('periode.*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->routeIs('periode.*', 'prodi.*', 'praktikum.*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->routeIs('periode.*', 'prodi.*', 'praktikum.*') ? 'active' : '' }}">
                         <i class="nav-icon bi bi-box-seam-fill"></i>
                         <p>
                             Data Master
@@ -62,6 +62,13 @@
                                 class="nav-link {{ request()->routeIs('prodi.*') ? 'active' : '' }}">
                                 <i class="nav-icon bi bi-circle"></i>
                                 <p>Program Studi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('praktikum.index') }}"
+                                class="nav-link {{ request()->routeIs('praktikum.*') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-circle"></i>
+                                <p>Praktikum</p>
                             </a>
                         </li>
                     </ul>

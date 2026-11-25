@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\PraktikumController;
 use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,5 @@ Route::get('/laporan/periode', [PeriodeController::class, 'cetak'])->name('lapor
 
 Route::resource('prodi', ProdiController::class)->except('show');
 Route::get('/laporan/prodi', [ProdiController::class, 'cetak'])->name('laporan.prodi');
+
+Route::resource('praktikum', PraktikumController::class)->except('show');

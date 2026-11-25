@@ -32,16 +32,15 @@ class PeriodeController extends Controller
     {
         $data = $request->validate([
             'periode' => ['required', 'string', 'max:16', 'min:15', 'unique:periode,periode'],
-            'singkatan' => ['required', 'string', 'max:3', 'min:3', 'unique:periode,singkatan'],
+            'singkatan' => ['required', 'numeric', 'unique:periode,singkatan'],
         ], [
             'periode.required' => 'Nama periode wajib diisi.',
-            'singkatan.required' => 'Singkatan wajib diisi.',
-            'singkatan.unique' => 'Singkatan sudah dipakai periode lain.',
-            'periode.unique' => 'Periode sudah ada.',
             'periode.max' => 'Periode maksimal 16 karakter.',
             'periode.min' => 'Periode minimal 15 karakter.',
-            'singkatan.max' => 'Singkatan maksimal 3 karakter.',
-            'singkatan.min' => 'Singkatan minimal 3 karakter.',
+            'periode.unique' => 'Periode sudah ada.',
+            'singkatan.required' => 'Singkatan wajib diisi.',
+            'singkatan.numeric' => 'Singkatan harus berupa angka.',
+            'singkatan.unique' => 'Singkatan sudah dipakai periode lain.',
         ]);
 
         $data['status'] = $request->boolean('status');
@@ -75,16 +74,16 @@ class PeriodeController extends Controller
     {
         $data = $request->validate([
             'periode' => ['required', 'string', 'max:16', 'min:15', 'unique:periode,periode,' . $periode->id],
-            'singkatan' => ['required', 'string', 'max:3', 'min:3', 'unique:periode,singkatan,' . $periode->id],
+            'singkatan' => ['required', 'numeric', 'size:3', 'unique:periode,singkatan,' . $periode->id],
         ], [
             'periode.required' => 'Nama periode wajib diisi.',
-            'singkatan.required' => 'Singkatan wajib diisi.',
-            'singkatan.unique' => 'Singkatan sudah dipakai periode lain.',
-            'periode.unique' => 'Periode sudah ada.',
             'periode.max' => 'Periode maksimal 16 karakter.',
             'periode.min' => 'Periode minimal 15 karakter.',
-            'singkatan.max' => 'Singkatan maksimal 3 karakter.',
-            'singkatan.min' => 'Singkatan minimal 3 karakter.',
+            'periode.unique' => 'Periode sudah ada.',
+            'singkatan.required' => 'Singkatan wajib diisi.',
+            'singkatan.numeric' => 'Singkatan harus berupa angka.',
+            'singkatan.size' => 'Singkatan harus 3 karakter.',
+            'singkatan.unique' => 'Singkatan sudah dipakai periode lain.',
         ]);
 
         $data['status'] = $request->boolean('status');

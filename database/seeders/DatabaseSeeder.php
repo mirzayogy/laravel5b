@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(PeriodeSeeder::class);
+        $this->call(ProdiSeeder::class);
+        $this->call(PraktikumSeeder::class);
     }
 }
